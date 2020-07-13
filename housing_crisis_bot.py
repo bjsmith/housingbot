@@ -6,8 +6,13 @@ from time import sleep
 from datetime import datetime, timezone, timedelta
 
 import sys, os
-sys.path.insert(1, os.path.join(sys.path[0], '..'))
-from credentials import *
+#sys.path.insert(1, os.path.join(sys.path[0], '..'))
+#from credentials import *
+consumer_key = environ['consumer_key']
+consumer_secret = environ['consumer_secret']
+access_token = environ['access_token']
+access_token_secret = environ['access_token_secret']
+
 
 # Access and authorize our Twitter credentials from credentials.py
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
