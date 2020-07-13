@@ -29,6 +29,8 @@ tweets = [t for t in
          ]# get the 20 MOST RECENT tweets that match the qualification
 
 
+fav_counts = [t.favorite_count for t in tweets]
+
 tweet_to_rt_index =  fav_counts.index(max(fav_counts)) # get the index of an arbitrary tweet with the most favorites
 tweet_to_rt = tweets[tweet_to_rt_index]
 
