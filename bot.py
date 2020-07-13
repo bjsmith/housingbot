@@ -5,8 +5,8 @@ from time import sleep
 from os import environ
 CONSUMER_KEY = environ['consumer_key']
 CONSUMER_SECRET = environ['consumer_secret']
-ACCESS_KEY = environ['access_key']
-ACCESS_SECRET = environ['access_secret']
+ACCESS_KEY = environ['access_token']
+ACCESS_SECRET = environ['access_token_secret']
 
 # Access and authorize our Twitter credentials from credentials.py
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
