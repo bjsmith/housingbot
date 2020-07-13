@@ -29,5 +29,5 @@ pyrsistent==0.16.0
 PySocks==1.7.1
 python-dateutil==2.8.1
 pyzmq==19.0.1
-tweepy @ file:///home/conda/feedstock_root/build_artifacts/tweepy_1594498408379/work
+tweepy
 zipp==3.1.0
