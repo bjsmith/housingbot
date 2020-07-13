@@ -8,6 +8,7 @@ from datetime import datetime, timezone, timedelta
 import sys, os
 #sys.path.insert(1, os.path.join(sys.path[0], '..'))
 #from credentials import *
+from os import environ
 consumer_key = environ['consumer_key']
 consumer_secret = environ['consumer_secret']
 access_token = environ['access_token']
