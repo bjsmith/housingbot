@@ -32,8 +32,8 @@ narrow_end = (datetime.now(timezone.utc) - timedelta(hours=1))
 tweets = [t for t in 
           tweepy.Cursor(api.search,
                            q='housing crisis',
-                           since=start,
-                           until=end,
+                           since=search_start,
+                           until=search_end,
                           geocode='-41.1,173.3,1500km').items(50)
          ]# get the 20 MOST RECENT tweets that match the qualification
 
@@ -42,7 +42,7 @@ for t in tweets:
     t_time = t.created_at.replace(tzinfo=timezone.utc)
     if((t_time>narrow_start) & (t_time<narrow_end)):#if it's in the right set
         #if it's not a retweet
-        #output_tweet(t)
+        output_tweet(t)
         if hasattr(t,'retweeted_status')==False:
             #it's had at least one RT or favorite.
             #if (t.favorite_count>0) or (t.retweet_count>0):
