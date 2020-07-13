@@ -35,3 +35,5 @@ tweet_to_rt_index =  fav_counts.index(max(fav_counts)) # get the index of an arb
 tweet_to_rt = tweets[tweet_to_rt_index]
 
 rt_result = tweet_to_rt.retweet()
+
+api.search()
