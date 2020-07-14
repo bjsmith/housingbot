@@ -40,7 +40,8 @@ tweets = [t for t in
                            q='"housing crisis" OR "affordable housing"',
                            since=search_start,
                            until=search_end,
-                          geocode='-41.1,173.3,1500km').items(50)
+                          geocode='-41.1,173.3,1500km' # in New Zealand
+                        ).items(50)
          ]# get the 20 MOST RECENT tweets that match the qualification
 
 #tweet any tweets that match criteria
