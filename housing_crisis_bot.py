@@ -37,7 +37,7 @@ narrow_end = (datetime.now(timezone.utc) - timedelta(hours=1))
 #get the tweets
 tweets = [t for t in 
           tweepy.Cursor(api.search,
-                           q='"housing crisis" OR "affordable housing" OR "homeless" OR "house price"',
+                           q='"housing crisis" OR "affordable housing" OR "homeless" OR "house price" OR "RMA"',
                            since=search_start,
                            until=search_end,
                           geocode='-41.1,173.3,1500km' # in New Zealand
