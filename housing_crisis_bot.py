@@ -6,13 +6,13 @@ from time import sleep
 from datetime import datetime, timezone, timedelta
 
 import sys, os
-#sys.path.insert(1, os.path.join(sys.path[0], '..'))
-#from credentials import *
+sys.path.insert(1, os.path.join(sys.path[0], '..'))
+from credentials import *
 from os import environ
-consumer_key = environ['consumer_key']
-consumer_secret = environ['consumer_secret']
-access_token = environ['access_token']
-access_token_secret = environ['access_token_secret']
+# consumer_key = environ['consumer_key']
+# consumer_secret = environ['consumer_secret']
+# access_token = environ['access_token']
+# access_token_secret = environ['access_token_secret']
 
 
 # Access and authorize our Twitter credentials from credentials.py
@@ -37,7 +37,7 @@ narrow_end = (datetime.now(timezone.utc) - timedelta(hours=1))
 #get the tweets
 tweets = [t for t in 
           tweepy.Cursor(api.search,
-                           q='"housing crisis" OR "affordable housing"',
+                           q='"housing crisis" OR "affordable housing" OR "homeless" OR "house price"',
                            since=search_start,
                            until=search_end,
                           geocode='-41.1,173.3,1500km' # in New Zealand
@@ -56,5 +56,9 @@ for t in tweets:
             #go ahead and retweet it
             #output_tweet(t)
             t.retweet()
+            #now follow that user if we aren't already
+            if api.show_friendship(source_screen_name="aotearoayimby", target_id=t.author.id_str)[1].followed_by is False:
+                #follow the user
+                api.create_friendship(id=t.author.id_str)
             #have a sleep before you tweet another thing.
             time.sleep(600)                

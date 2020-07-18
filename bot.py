@@ -22,7 +22,7 @@ end = (datetime.now(timezone.utc) + timedelta(days=1)).strftime("%Y-%m-%d")
 
 tweets = [t for t in 
           tweepy.Cursor(api.search,
-                           q='housing OR "house prices"',
+                           q='housing',
                            since=start,
                            until=end,
                           geocode='-41.1,173.3,1500km').items(20)
