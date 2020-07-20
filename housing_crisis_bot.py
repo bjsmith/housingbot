@@ -2,7 +2,7 @@
 
 # Import Tweepy, sleep, credentials.py
 import tweepy
-from time import sleep
+import time
 from datetime import datetime, timezone, timedelta
 
 import sys, os
