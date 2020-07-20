@@ -6,7 +6,7 @@ from time import sleep
 from datetime import datetime, timezone, timedelta
 
 import sys, os
-sys.path.insert(1, os.path.join(sys.path[0], '..'))
+#sys.path.insert(1, os.path.join(sys.path[0], '..'))
 #from credentials import *
 
 from os import environ
