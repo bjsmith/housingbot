@@ -3,15 +3,10 @@ import tweepy
 from time import sleep
 
 from os import environ
-consumer_key = environ['consumer_key']
-consumer_secret = environ['consumer_secret']
-access_token = environ['access_token']
-access_token_secret = environ['access_token_secret']
 
-# Access and authorize our Twitter credentials from credentials.py
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
-api = tweepy.API(auth)
+from authenticate import *
+
+api = get_authenticated_api()
 
 from datetime import datetime, timezone, timedelta
 start = (datetime.now(timezone.utc) - timedelta(days=1)).strftime("%Y-%m-%d")

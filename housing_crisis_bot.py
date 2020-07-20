@@ -7,24 +7,11 @@ from datetime import datetime, timezone, timedelta
 
 import sys, os
 
-import socket
+from authenticate import *
 
-from os import environ
-
-if socket.gethostname()== "Benjamins-MBP-2-2ba5":
-    sys.path.insert(1, os.path.join(sys.path[0], '..'))
-    from credentials import *
-else:
-    consumer_key = environ['consumer_key']
-    consumer_secret = environ['consumer_secret']
-    access_token = environ['access_token']
-    access_token_secret = environ['access_token_secret']
+api = get_authenticated_api()
 
 
-# Access and authorize our Twitter credentials from credentials.py
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
-api = tweepy.API(auth)
 
 def output_tweet(t):
     print('Tweet by: @' + t.user.screen_name + "; " + str(t.favorite_count) + ". " + t.text)
