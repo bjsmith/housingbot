@@ -9,6 +9,8 @@ import sys, os
 
 from authenticate import *
 
+from daily_countdown import variable_ratio_daily_countdown_tweet
+
 api = get_authenticated_api()
 
 
@@ -38,6 +40,8 @@ tweets = [t for t in
                           geocode='-41.1,173.3,1500km' # in New Zealand
                         ).items(50)
          ]# get the 20 MOST RECENT tweets that match the qualification
+
+variable_ratio_daily_countdown_tweet(api,60*5)
 
 #tweet any tweets that match criteria
 for t in tweets:
