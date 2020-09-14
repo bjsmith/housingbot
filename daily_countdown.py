@@ -29,7 +29,9 @@ def variable_ratio_daily_countdown_tweet(api,delay_after_tweeting=0,tweet_invers
     #this is about 15 hours of the day so that's what we'll use
     chance_of_tweeting = 1/tweet_inverse_odds
     random.seed(datetime.now())
-    is_lucky_hour = (random.random() <chance_of_tweeting)
+    lucky_hour_dip = random.random()
+    print("lucky hour dip number is " + str(lucky_hour_dip))
+    is_lucky_hour = (lucky_hour_dip <chance_of_tweeting)
 
     if is_lucky_hour and is_within_time_range and days_left_to_submit>0:
         print("tweeting a reminder about wellington spatial plan")
