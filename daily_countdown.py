@@ -62,6 +62,7 @@ def variable_ratio_daily_countdown_tweet(api,delay_after_tweeting=0,tweet_invers
 
         print(tweet_text)
 
+
         api.update_status(tweet_text)
 
         time.sleep(delay_after_tweeting)

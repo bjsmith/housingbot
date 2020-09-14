@@ -3,8 +3,9 @@
 # Import Tweepy, sleep, credentials.py
 import tweepy
 import time
+import pytz
 from datetime import datetime, timezone, timedelta
-
+import random
 import sys, os
 
 from authenticate import *
@@ -13,6 +14,11 @@ from daily_countdown import variable_ratio_daily_countdown_tweet
 
 api = get_authenticated_api()
 
+# get new zealand timezone
+nztz = pytz.timezone("Pacific/Auckland")
+# get now and today
+now = datetime.now(nztz)
+today = datetime.date(now)
 
 
 def output_tweet(t):
@@ -54,7 +60,27 @@ for t in tweets:
             #if (t.favorite_count>0) or (t.retweet_count>0):
             #go ahead and retweet it
             #output_tweet(t)
-            t.retweet()
+
+            try:
+                tweet_full_url = "https://twitter.com/" + t.user.screen_name+ "/status/"  + t.id_str
+            except:# (KeyError, AttributeError):
+                tweet_full_url=None
+                print("trouble getting the tweet URL")
+
+            if (datetime.date(datetime.strptime("2020-09-15","%Y-%m-%d")) ==today) and (tweet_full_url is not None):
+                tweet_version = random.sample([0, 1, 2, 3], 1)[0]
+                if tweet_version==0:
+                    api.update_status("actual #nzhellhole", attachment_url=tweet_full_url)
+                elif tweet_version==1:
+                    api.update_status("and the rent keeps going up and up. no relief! #nzhellhole", attachment_url=tweet_full_url)
+                elif tweet_version==2:
+                    api.update_status("more and more homeless and no government will address it #nzhellhole",
+                                      attachment_url=tweet_full_url)
+                elif tweet_version==3:
+                    api.update_status("I guess it's comfortable to be smug about our #nzhellhole if you're not worried about affordable housing",
+                                      attachment_url=tweet_full_url)
+            else:
+                t.retweet()
             #now follow that user if we aren't already
             if api.show_friendship(source_screen_name="aotearoayimby", target_id=t.author.id_str)[1].followed_by is False:
                 #follow the user
