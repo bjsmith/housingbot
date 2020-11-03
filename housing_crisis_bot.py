@@ -75,12 +75,16 @@ tweets = [t for t in
 
 variable_ratio_daily_countdown_tweet(api,60*5)
 
-
+excepted_user_list = ['jimmywafer','economissive']
+excepted_user_list = [s.lower() for s in excepted_user_list]
 #tweet any tweets that match criteria
 for t in tweets:
     t_time = t.created_at.replace(tzinfo=timezone.utc)
     if((t_time>narrow_start) & (t_time<narrow_end)):#if it's in the right set
         #if it's not a retweet
+        if t.user.screen_name.lower() in excepted_user_list:
+            continue #we are ignoring this list of users, just go on to the next one.
+
         output_tweet(t)
         if hasattr(t,'retweeted_status')==False:
             #it's had at least one RT or favorite.
