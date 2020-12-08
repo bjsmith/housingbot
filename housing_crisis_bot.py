@@ -75,7 +75,13 @@ tweets = [t for t in
 
 variable_ratio_daily_countdown_tweet(api,60*5)
 
-excepted_user_list = ['jimmywafer','economissive','AlecMuses']
+excepted_user_list = [
+	'jimmywafer','economissive',
+	'AlecMuses','PeterHarkessNZ',
+	'TheBFD_nz','stanleystone76',
+	'ElliotIkilei','pinko_hunter',
+	'pitakakariki'
+	]
 excepted_user_list = [s.lower() for s in excepted_user_list]
 #tweet any tweets that match criteria
 for t in tweets:
