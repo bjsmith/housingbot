@@ -80,7 +80,8 @@ excepted_user_list = [
 	'AlecMuses','PeterHarkessNZ',
 	'TheBFD_nz','stanleystone76',
 	'ElliotIkilei','pinko_hunter',
-	'pitakakariki'
+	'pitakakariki','Tat_Loo'
+
 	]
 excepted_user_list = [s.lower() for s in excepted_user_list]
 #tweet any tweets that match criteria
