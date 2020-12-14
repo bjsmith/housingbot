@@ -80,7 +80,8 @@ excepted_user_list = [
 	'AlecMuses','PeterHarkessNZ',
 	'TheBFD_nz','stanleystone76',
 	'ElliotIkilei','pinko_hunter',
-	'pitakakariki','Tat_Loo'
+	'pitakakariki','Tat_Loo',
+	'JamesWafer85'
 
 	]
 excepted_user_list = [s.lower() for s in excepted_user_list]
