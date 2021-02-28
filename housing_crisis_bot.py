@@ -64,7 +64,7 @@ for t in modern_housing_tweets:
 #get the tweets
 tweets = [t for t in
           tweepy.Cursor(api.search,
-                           q='"housing crisis" OR "affordable housing" OR "homelessness" OR "house price" OR "RMA" OR "NPS"',
+                           q='"housing crisis" OR "affordable housing" OR "homelessness" OR "house price" OR "NPS" OR "rent price"',
                         #'homeless' was returning way too many out-of-context tweets.
                         # had to make that one more specific
                            since=search_start,
@@ -81,8 +81,8 @@ excepted_user_list = [
 	'TheBFD_nz','stanleystone76',
 	'ElliotIkilei','pinko_hunter',
 	'pitakakariki','Tat_Loo',
-	'JamesWafer85'
-
+	'JamesWafer85','grantmeadows3','james_hlcw','WCPANZ',
+	'nealejones','NZLP55_66','LexRegina72','Edit_Moa'
 	]
 excepted_user_list = [s.lower() for s in excepted_user_list]
 #tweet any tweets that match criteria
